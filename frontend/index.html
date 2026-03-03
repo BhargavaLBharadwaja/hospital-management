@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Hospital - Your Health, Our Priority</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                🏥 <span>MediCare</span>
+            </a>
+            <ul class="navbar-nav" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="navbar-actions" id="navActions">
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Register</a>
+            </div>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Your Health Is Our Top Priority</h1>
+                <p>Experience world-class healthcare with our advanced hospital management system. Book appointments, consult via video call, and manage your health records — all in one place.</p>
+                <div class="hero-buttons">
+                    <a href="register.html" class="btn btn-white">Get Started Free →</a>
+                    <a href="doctors.html" class="btn btn-ghost">Find a Doctor</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Expert Doctors</p>
+            </div>
+            <div class="stat-item">
+                <h3>50K+</h3>
+                <p>Happy Patients</p>
+            </div>
+            <div class="stat-item">
+                <h3>100+</h3>
+                <p>Specializations</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Support Available</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services & Features</h2>
+                <p>Everything you need for complete healthcare management</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon blue">📅</div>
+                    <h3>Easy Appointment Booking</h3>
+                    <p>Book appointments with top specialists in just a few clicks. Choose your preferred date, time, and consultation type.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon green">📹</div>
+                    <h3>Video Consultations</h3>
+                    <p>Consult with doctors from the comfort of your home via secure HD video calls with built-in chat.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon orange">💊</div>
+                    <h3>Digital Prescriptions</h3>
+                    <p>Receive and access your prescriptions digitally. Never lose a prescription again.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon pink">📋</div>
+                    <h3>Medical Records</h3>
+                    <p>Maintain complete digital health records including history, reports, and vitals tracking.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon cyan">🔔</div>
+                    <h3>Real-time Notifications</h3>
+                    <p>Stay updated with appointment reminders, prescription alerts, and important health notifications.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon red">🛡️</div>
+                    <h3>Secure & Private</h3>
+                    <p>Your health data is encrypted and stored securely. We comply with healthcare data protection standards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section style="padding: 80px 0; background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Get started in 3 simple steps</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon blue" style="font-size: 40px;">1️⃣</div>
+                    <h3>Register & Login</h3>
+                    <p>Create your free account with basic details and verify your email to get started.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon green" style="font-size: 40px;">2️⃣</div>
+                    <h3>Find & Book Doctor</h3>
+                    <p>Search for specialists, view profiles, check availability, and book your appointment.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon orange" style="font-size: 40px;">3️⃣</div>
+                    <h3>Consult & Get Well</h3>
+                    <p>Visit in-person or join video call. Get your digital prescription and follow-up care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 80px 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); text-align: center; color: white;">
+        <div class="container">
+            <h2 style="font-size: 36px; margin-bottom: 16px;">Ready to Take Control of Your Health?</h2>
+            <p style="font-size: 18px; opacity: 0.9; margin-bottom: 30px;">Join thousands of patients who trust MediCare for their healthcare needs.</p>
+            <a href="register.html" class="btn btn-white btn-lg">Create Free Account →</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>🏥 MediCare Hospital</h4>
+                    <p>Providing world-class healthcare services with cutting-edge technology and compassionate care.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <a href="doctors.html">Find Doctors</a>
+                    <a href="appointments.html">Book Appointment</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="register.html">Register</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Departments</h4>
+                    <a href="#">Cardiology</a>
+                    <a href="#">Neurology</a>
+                    <a href="#">Orthopedics</a>
+                    <a href="#">Pediatrics</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <p>📍 123 Medical Ave, Healthcare City</p>
+                    <p>📞 +91 1234567890</p>
+                    <p>📧 info@medicare.com</p>
+                    <p>🕐 24/7 Emergency Services</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediCare Hospital. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescriptions - MediCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🏥 <span>MediCare</span></a>
+            <ul class="navbar-nav" id="navMenu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="prescriptions.html" class="active">Prescriptions</a></li>
+            </ul>
+            <div class="navbar-actions" id="navActions"></div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 40px 20px;">
+        <div class="page-header">
+            <h1>💊 My Prescriptions</h1>
+        </div>
+
+        <div id="prescriptionsList">
+            <div class="loading-overlay">
+                <div class="spinner"></div>
+                <p>Loading prescriptions...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="js/main.js"></script>
+    <script src="js/prescriptions.js"></script>
+</body>
+</html>

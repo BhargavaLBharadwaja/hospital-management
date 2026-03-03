@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - MediCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🏥 <span>MediCare</span></a>
+            <ul class="navbar-nav" id="navMenu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="appointments.html" class="active">Appointments</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="prescriptions.html">Prescriptions</a></li>
+            </ul>
+            <div class="navbar-actions" id="navActions"></div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 40px 20px;">
+        <div class="page-header">
+            <h1>📅 My Appointments</h1>
+            <button class="btn btn-primary" onclick="showBookingModal()">+ Book New Appointment</button>
+        </div>
+
+        <!-- Filters -->
+        <div class="search-filters">
+            <select class="filter-select" id="statusFilter" onchange="loadAppointments()">
+                <option value="">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+            <input type="date" class="search-input" id="dateFilter" onchange="loadAppointments()" style="max-width: 200px;">
+        </div>
+
+        <!-- Appointments List -->
+        <div id="appointmentsList">
+            <div class="loading-overlay">
+                <div class="spinner"></div>
+                <p>Loading appointments...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3>📅 Book New Appointment</h3>
+                <button class="modal-close" onclick="closeModal('bookingModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label>Select Doctor *</label>
+                        <select id="bookDoctor" required>
+                            <option value="">Choose a doctor...</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Appointment Date *</label>
+                            <input type="date" id="bookDate" required min="">
+                        </div>
+                        <div class="form-group">
+                            <label>Consultation Type *</label>
+                            <select id="bookType" required>
+                                <option value="in-person">🏥 In-Person</option>
+                                <option value="video-call">📹 Video Call</option>
+                                <option value="phone">📞 Phone Call</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Time Slot *</label>
+                        <div class="time-slots" id="timeSlots">
+                            <div class="time-slot" onclick="selectTimeSlot(this, '09:00 AM')">09:00 AM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '09:30 AM')">09:30 AM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '10:00 AM')">10:00 AM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '10:30 AM')">10:30 AM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '11:00 AM')">11:00 AM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '11:30 AM')">11:30 AM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '02:00 PM')">02:00 PM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '02:30 PM')">02:30 PM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '03:00 PM')">03:00 PM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '03:30 PM')">03:30 PM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '04:00 PM')">04:00 PM</div>
+                            <div class="time-slot" onclick="selectTimeSlot(this, '04:30 PM')">04:30 PM</div>
+                        </div>
+                        <input type="hidden" id="bookTimeSlot" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Reason for Visit *</label>
+                        <textarea id="bookReason" required placeholder="Describe your symptoms or reason for visit..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Symptoms (comma separated)</label>
+                        <input type="text" id="bookSymptoms" placeholder="e.g., headache, fever, cough">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('bookingModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="bookAppointment()">✅ Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="js/main.js"></script>
+    <script src="js/appointments.js"></script>
+</body>
+</html>

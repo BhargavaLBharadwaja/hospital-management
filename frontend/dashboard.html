@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MediCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🏥 <span>MediCare</span></a>
+            <ul class="navbar-nav" id="navMenu">
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="prescriptions.html">Prescriptions</a></li>
+            </ul>
+            <div class="navbar-actions">
+                <div class="user-menu" id="userMenu">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <span id="userName">User</span>
+                </div>
+                <button class="btn btn-sm btn-danger" onclick="logout()">Logout</button>
+            </div>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html" class="active"><span class="icon">📊</span> Dashboard</a></li>
+                <li><a href="appointments.html"><span class="icon">📅</span> Appointments</a></li>
+                <li><a href="doctors.html"><span class="icon">🩺</span> Doctors</a></li>
+                <li><a href="prescriptions.html"><span class="icon">💊</span> Prescriptions</a></li>
+                <li><a href="videocall.html"><span class="icon">📹</span> Video Call</a></li>
+                <li><a href="profile.html"><span class="icon">👤</span> My Profile</a></li>
+                <li><a href="contact.html"><span class="icon">📞</span> Contact Us</a></li>
+                <li id="adminLink" style="display:none;"><a href="admin.html"><span class="icon">⚙️</span> Admin Panel</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <h1>👋 Welcome, <span id="dashboardName">User</span>!</h1>
+                <button class="btn btn-primary" onclick="window.location.href='appointments.html'">
+                    📅 Book Appointment
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="dashboard-stats" id="dashboardStats">
+                <div class="stat-card">
+                    <div class="stat-icon blue">📅</div>
+                    <div class="stat-info">
+                        <h3 id="totalAppointments">0</h3>
+                        <p>Total Appointments</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orange">⏳</div>
+                    <div class="stat-info">
+                        <h3 id="pendingAppointments">0</h3>
+                        <p>Pending</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon green">✅</div>
+                    <div class="stat-info">
+                        <h3 id="completedAppointments">0</h3>
+                        <p>Completed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon cyan">📹</div>
+                    <div class="stat-info">
+                        <h3 id="todayAppointments">0</h3>
+                        <p>Today</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Appointments -->
+            <div class="data-card">
+                <div class="data-card-header">
+                    <h3>📋 Recent Appointments</h3>
+                    <a href="appointments.html" class="btn btn-sm btn-outline">View All</a>
+                </div>
+                <div id="recentAppointments">
+                    <div class="loading-overlay">
+                        <div class="spinner"></div>
+                        <p>Loading appointments...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 20px;">
+                <a href="appointments.html" class="feature-card" style="cursor: pointer;">
+                    <div class="feature-icon blue">📅</div>
+                    <h3>Book Appointment</h3>
+                    <p>Schedule a new appointment</p>
+                </a>
+                <a href="doctors.html" class="feature-card" style="cursor: pointer;">
+                    <div class="feature-icon green">🔍</div>
+                    <h3>Find Doctor</h3>
+                    <p>Search specialists</p>
+                </a>
+                <a href="prescriptions.html" class="feature-card" style="cursor: pointer;">
+                    <div class="feature-icon orange">💊</div>
+                    <h3>Prescriptions</h3>
+                    <p>View your prescriptions</p>
+                </a>
+                <a href="profile.html" class="feature-card" style="cursor: pointer;">
+                    <div class="feature-icon pink">👤</div>
+                    <h3>My Profile</h3>
+                    <p>Update your details</p>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - MediCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🏥 <span>MediCare</span></a>
+            <ul class="navbar-nav"><li><a href="dashboard.html">Dashboard</a></li><li><a href="profile.html" class="active">Profile</a></li></ul>
+            <div class="navbar-actions" id="navActions"></div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 40px 20px;">
+        <h1 style="margin-bottom: 30px;">👤 My Profile</h1>
+
+        <div class="profile-grid">
+            <div class="profile-sidebar">
+                <div class="profile-avatar-lg" id="profileAvatar">U</div>
+                <h2 id="profileName">User</h2>
+                <p style="color: var(--gray); margin-bottom: 8px;" id="profileEmail">user@email.com</p>
+                <span class="badge badge-active" id="profileRole">Patient</span>
+            </div>
+
+            <div>
+                <div class="data-card">
+                    <div class="data-card-header">
+                        <h3>Personal Information</h3>
+                        <button class="btn btn-sm btn-primary" onclick="enableEditing()">✏️ Edit</button>
+                    </div>
+                    <div style="padding: 24px;">
+                        <form id="profileForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" id="profFirstName" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" id="profLastName" disabled>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" id="profPhone" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender</label>
+                                    <select id="profGender" disabled>
+                                        <option value="">Select</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" id="profDOB" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Blood Group</label>
+                                    <select id="profBlood" disabled>
+                                        <option value="">Select</option>
+                                        <option value="A+">A+</option><option value="A-">A-</option>
+                                        <option value="B+">B+</option><option value="B-">B-</option>
+                                        <option value="AB+">AB+</option><option value="AB-">AB-</option>
+                                        <option value="O+">O+</option><option value="O-">O-</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div id="saveProfileBtn" style="display: none;">
+                                <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+                                <button type="button" class="btn btn-outline" onclick="cancelEditing()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Change Password -->
+                <div class="data-card" style="margin-top: 20px;">
+                    <div class="data-card-header"><h3>🔒 Change Password</h3></div>
+                    <div style="padding: 24px;">
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>New Password</label>
+                                    <input type="password" id="newPassword" required minlength="6">
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm New Password</label>
+                                    <input type="password" id="confirmNewPassword" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">🔒 Change Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

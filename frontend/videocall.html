@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Consultation - MediCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🏥 <span>MediCare</span></a>
+            <div class="navbar-actions">
+                <span id="callStatus" style="color: var(--success); font-weight: 600;">● Ready</span>
+                <span id="callTimer" style="font-weight: 600;">00:00</span>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding: 20px; height: calc(100vh - 70px);">
+        <!-- Pre-call screen -->
+        <div id="preCallScreen" class="fade-in">
+            <div style="max-width: 600px; margin: 60px auto; text-align: center;">
+                <div style="font-size: 80px; margin-bottom: 20px;">📹</div>
+                <h1 style="margin-bottom: 12px;">Video Consultation</h1>
+                <p style="color: var(--gray); margin-bottom: 30px;">Join or start a video consultation with your doctor</p>
+                
+                <div class="form-card" style="text-align: left;">
+                    <div class="form-group">
+                        <label>Enter Room ID</label>
+                        <input type="text" id="roomIdInput" placeholder="Enter room ID or paste video call link">
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-primary" style="flex: 1;" onclick="joinVideoCall()">
+                            📹 Join Call
+                        </button>
+                        <button class="btn btn-secondary" style="flex: 1;" onclick="createNewRoom()">
+                            ➕ New Room
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Upcoming video appointments -->
+                <div id="upcomingVideoCalls" style="margin-top: 30px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Video call screen -->
+        <div id="videoCallScreen" style="display: none; height: 100%;">
+            <div class="video-call-container">
+                <!-- Main Video Area -->
+                <div class="video-area" id="videoArea">
+                    <video id="remoteVideo" autoplay playsinline></video>
+                    <div id="noRemoteUser" style="color: white; text-align: center;">
+                        <div style="font-size: 64px; margin-bottom: 16px;">👤</div>
+                        <h3>Waiting for other participant...</h3>
+                        <p style="opacity: 0.7;">Share the Room ID for them to join</p>
+                        <p style="margin-top: 12px; background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; font-family: monospace;" id="displayRoomId"></p>
+                    </div>
+                    
+                    <!-- Local Video -->
+                    <div class="local-video">
+                        <video id="localVideo" autoplay playsinline muted></video>
+                    </div>
+
+                    <!-- Video Controls -->
+                    <div class="video-controls">
+                        <button class="control-btn mic" id="micBtn" onclick="toggleMic()">🎤</button>
+                        <button class="control-btn camera" id="cameraBtn" onclick="toggleCamera()">📷</button>
+                        <button class="control-btn screen" onclick="shareScreen()">🖥️</button>
+                        <button class="control-btn end-call" onclick="endCall()">📞</button>
+                        <button class="control-btn chat-toggle" onclick="toggleChat()">💬</button>
+                    </div>
+                </div>
+
+                <!-- Chat Panel -->
+                <div class="chat-panel" id="chatPanel">
+                    <div class="chat-header">💬 Chat</div>
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="empty-state" style="padding: 30px;">
+                            <p>No messages yet. Start the conversation!</p>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="handleChatKeypress(event)">
+                        <button onclick="sendChatMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/videocall.js"></script>
+</body>
+</html>

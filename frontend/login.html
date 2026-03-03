@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MediCare Hospital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">🏥 <span>MediCare</span></a>
+            <ul class="navbar-nav"><li><a href="index.html">Home</a></li><li><a href="register.html">Register</a></li></ul>
+        </div>
+    </nav>
+
+    <div class="form-container">
+        <div class="form-card fade-in">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Login to your MediCare account</p>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Your password">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;" id="loginBtn">
+                    Login
+                </button>
+                <p style="text-align: center; margin-top: 20px; color: var(--gray);">
+                    Don't have an account? <a href="register.html" style="color: var(--primary); font-weight: 600;">Register here</a>
+                </p>
+            </form>
+
+            <!-- Demo Credentials -->
+            <div style="margin-top: 20px; padding: 16px; background: #f1f5f9; border-radius: 8px; font-size: 13px;">
+                <strong>Demo Accounts:</strong><br>
+                <p>👤 Patient: patient@demo.com / 123456</p>
+                <p>🩺 Doctor: doctor@demo.com / 123456</p>
+                <p>👨‍💼 Admin: admin@demo.com / 123456</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
